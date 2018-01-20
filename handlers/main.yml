@@ -1,0 +1,9 @@
+---
+# handlers file for expandfs
+
+- name: Filesystem is expanded
+  debug:
+    msg: 'Filesystem is expanded. No need to reboot'
+  tags:
+    - expandfs
+...

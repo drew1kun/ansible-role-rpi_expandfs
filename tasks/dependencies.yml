@@ -1,0 +1,14 @@
+---
+- name: '[main] Install parted and raspi-config'
+  apt:
+    name:
+      - parted
+      - raspi-config
+    update_cache: yes
+    state: present
+    force: yes
+  become: yes
+  tags:
+    - expandfs
+    - expandfs_dependencies
+...
