@@ -6,10 +6,16 @@ Ansible role for expanding the raspberrypi file system after flushing the linux 
 Requirements
 ------------
 
+One of the following OS (or deriviatives):
+ - Debian
+ - Raspbian
+ - Minibian
+
 The role installs parted and raspi-config packages as dependencies
 
 Role Variables
 --------------
+
 No variables set.
 
 Dependencies
