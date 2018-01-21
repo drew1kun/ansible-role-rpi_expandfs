@@ -20,7 +20,7 @@ Does not depend on other roles.
 Example Playbook
 ----------------
 
-    - hosts: servers
+    - hosts: rpi
       roles:
          - rpi_expandfs
 
