@@ -23,6 +23,12 @@ galaxy_info:
     - name: Debian
       versions:
         - jessie
+    - name: Raspbian
+      versions:
+        - jessie
+    - name: Minibian
+      versions:
+        - jessie
 
   galaxy_tags:
     - network
