@@ -28,7 +28,7 @@ Example Playbook
 
     - hosts: rpi
       roles:
-         - rpi_expandfs
+         - drewshg312.rpi_expandfs
 
 License
 -------
