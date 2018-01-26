@@ -14,7 +14,7 @@ One of the following OS (or deriviatives):
  - Raspbian
  - Minibian
 
-The role installs parted and raspi-config packages as dependencies
+The role installs *parted* and *raspi-config* packages as dependencies
 
 Role Variables
 --------------
