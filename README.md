@@ -7,7 +7,7 @@ Requirements
 ------------
 
 One of the following OS (or deriviatives):
- - Debian
+ - Debian (jessie)
  - Raspbian
  - Minibian
 

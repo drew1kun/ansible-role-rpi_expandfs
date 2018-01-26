@@ -20,9 +20,7 @@ galaxy_info:
   #github_branch:
 
   platforms:
-    - name: Raspbian
-      versions: jessie
-    - name: Minibian
+    - name: Debian
       versions: jessie
 
   galaxy_tags:
