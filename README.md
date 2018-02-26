@@ -41,7 +41,7 @@ License
 Author Information
 ------------------
 
-Andrew Shagayev
+Andrew Shagayev | [e-mail](mailto:drewshg@gmail.com)
 
 [role-badge]: https://img.shields.io/badge/role-drew--kun.rpi__expandfs-green.svg
 [galaxy-link]: https://galaxy.ansible.com/drew-kun/rpi_expandfs/
