@@ -10,9 +10,7 @@ Requirements
 ------------
 
 One of the following OS (or deriviatives):
- - Debian (jessie)
- - Raspbian
- - Minibian
+ - Debian jessie (Raspbian, Minibian)
 
 The role installs *parted* and *raspi-config* packages as dependencies
 
