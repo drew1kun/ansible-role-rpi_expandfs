@@ -19,7 +19,7 @@ The role installs *parted* and *raspi-config* packages as dependencies
 Role Variables
 --------------
 
-No variables set.
+None
 
 Dependencies
 ------------
