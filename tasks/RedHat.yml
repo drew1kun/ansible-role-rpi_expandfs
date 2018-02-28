@@ -5,9 +5,6 @@
   register: rpi_expandfs_rootfs_expand
   tags:
     - rpi_expandfs
-    - rpi_expandfs_RedHat
-    - RedHat
-    - Centos
 
 - name: '[RedHat] ==RED OUTPUT IS OK== Run rootfs-expand command only if the binary exists'
   command: /usr/local/bin/rootfs-expand
@@ -16,7 +13,4 @@
   become: yes
   tags:
     - rpi_expandfs
-    - rpi_expandfs_RedHat
-    - RedHat
-    - Centos
 ...
