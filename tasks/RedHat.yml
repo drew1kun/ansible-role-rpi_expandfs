@@ -11,6 +11,7 @@
   when: rpi_expandfs_rootfs_expand.stat.exists
   ignore_errors: True
   become: yes
+  notify: Filesystem is expanded
   tags:
     - rpi_expandfs
 ...

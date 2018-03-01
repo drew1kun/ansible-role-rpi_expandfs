@@ -11,6 +11,7 @@ Requirements
 
 One of the following OS (or deriviatives):
  - Debian jessie (Raspbian, Minibian)
+ - Centos 7
 
 The role installs *parted* and *raspi-config* packages as dependencies
 
