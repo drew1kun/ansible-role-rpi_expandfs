@@ -9,6 +9,8 @@ Ansible role for expanding the raspberrypi file system after flushing the linux 
 Requirements
 ------------
 
+NOTE: Role requires Fact Gathering by ansible!
+
 One of the following OS (or deriviatives):
  - Debian jessie (Raspbian, Minibian)
  - Centos 7
@@ -29,6 +31,7 @@ Example Playbook
 ----------------
 
     - hosts: rpi
+      gather_facts: yes
       roles:
          - drewshg312.rpi_expandfs
 

@@ -14,4 +14,11 @@
   notify: Filesystem is expanded
   tags:
     - rpi_expandfs
+
+- name: '[RedHat]  /usr/local/bin/rootfs-expand binary is not available'
+  debug:
+    msg: "/usr/local/bin/rootfs-expand binary was not found"
+  when: not rpi_expandfs_rootfs_expand.stat.exists
+  tags:
+    - rpi_expandfs
 ...
