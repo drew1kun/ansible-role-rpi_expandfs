@@ -1,4 +1,17 @@
 ---
+- name: '[dependencies] Install parted and dirmngr'
+  apt:
+    name:
+      - parted
+      - dirmngr
+    update_cache: yes
+    state: present
+    force: yes
+  become: yes
+  tags:
+    - expandfs
+    - expandfs_dependencies
+
 - name: '[dependencies] Add the GPG key of the apt-get repository for raspbian stretch'
   apt_key:
     keyserver: hkp://keyserver.ubuntu.com:80
@@ -15,11 +28,9 @@
     - deb http://archive.raspberrypi.org/debian/ stretch main ui     # holds raspi-config package
   when: ansible_distribution_release == 'stretch'
 
-- name: '[dependencies] Install parted and raspi-config'
+- name: '[dependencies] Install raspi-config'
   apt:
-    name:
-      - parted
-      - raspi-config
+    name: raspi-config
     update_cache: yes
     state: present
     force: yes
