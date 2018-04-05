@@ -18,6 +18,9 @@
     id: 7FA3303E
     state: present
   when: ansible_distribution_release == 'stretch'
+  tags:
+    - expandfs
+    - expandfs_dependencies
 
 - name: '[dependencies] Add apt-get repositories for raspbian stretch to install raspi-config and firmware'
   apt_repository:
@@ -27,6 +30,9 @@
     - deb http://mirrordirector.raspbian.org/raspbian/ stretch main contrib non-free rpi firmware
     - deb http://archive.raspberrypi.org/debian/ stretch main ui     # holds raspi-config package
   when: ansible_distribution_release == 'stretch'
+  tags:
+    - expandfs
+    - expandfs_dependencies
 
 - name: '[dependencies] Install raspi-config'
   apt:
