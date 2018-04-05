@@ -1,18 +1,12 @@
 ---
-- name: '[main] Install dependencies: parted and raspi-config packages'
-  apt:
-    name:
-      - parted
-      - raspi-config
-    update_cache: yes
-    state: present
-    force: yes
+- name: '[Debian] Include dependencies installation tasks'
+  include_tasks: dependencies.yml
   become: yes
   tags:
     - expandfs
     - expandfs_dependencies
 
-- name: '[main] Temporarily set dns to 8.8.8.8 in order to resolve *.raspberrypi.org'
+- name: '[Debian] Temporarily set dns to 8.8.8.8 in order to resolve *.raspberrypi.org'
   copy:
     src: resolv.conf
     dest: /etc/resolv.conf
@@ -23,7 +17,7 @@
   tags:
     - expandfs
 
-- name: '[main] Check unpartitioned space'
+- name: '[Debian] Check unpartitioned space'
   shell: /sbin/parted /dev/mmcblk0 unit gb print free | grep 'Free Space' | tail -n1 | awk '{print $3}'
   register: expandfs_unpartitioned
   changed_when: false
@@ -32,21 +26,21 @@
   tags:
     - expandfs
 
-- name: '[main] Expanding filesystem'
+- name: '[Debian] Expanding filesystem'
   command: raspi-config nonint do_expand_rootfs
   become: yes
   when: expandfs_unpartitioned.stdout != "0.00GB"
   tags:
     - expandfs
 
-- name: '[main] Running partprobe'
+- name: '[Debian] Running partprobe'
   command: partprobe
   become: yes
   when: expandfs_unpartitioned.stdout != "0.00GB"
   tags:
     - expandfs
 
-- name: '[main] Running resize2fs /dev/mmcblk0p2'
+- name: '[Debian] Running resize2fs /dev/mmcblk0p2'
   command: resize2fs /dev/mmcblk0p2
   become: yes
   when: expandfs_unpartitioned.stdout != "0.00GB"
