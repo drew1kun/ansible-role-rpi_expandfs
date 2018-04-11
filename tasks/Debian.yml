@@ -6,7 +6,7 @@
     - expandfs
     - expandfs_dependencies
 
-- name: '[Debian] Temporarily set dns to 8.8.8.8 in order to resolve *.raspberrypi.org'
+- name: '[Debian] Temporarily set dns to 9.9.9.9 in order to resolve *.raspberrypi.org'
   copy:
     src: resolv.conf
     dest: /etc/resolv.conf
