@@ -4,4 +4,5 @@
   tags:
     - rpi_expandfs
 
+- meta: flush_handlers
 ...
