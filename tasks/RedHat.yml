@@ -5,11 +5,22 @@
   tags:
     - rpi_expandfs
 
+- name: '[RedHat] Check unpartitioned space'
+  shell: /sbin/parted /dev/mmcblk0 unit gb print free | grep 'Free Space' | tail -n1 | awk '{print $3}'
+  register: expandfs_unpartitioned
+  changed_when: false
+  failed_when: expandfs_unpartitioned.stderr != ""
+  become: yes
+  tags:
+    - expandfs
+
 - name: '[RedHat] Run rootfs-expand command only if the binary exists'
   command: /usr/bin/rootfs-expand
-  when: rpi_expandfs_rootfs_expand.stat.exists
-  failed_when: false
   become: yes
+  failed_when: false
+  when:
+    - rpi_expandfs_rootfs_expand.stat.exists
+    - expandfs_unpartitioned.stdout != "0.00GB"
   notify: Filesystem is expanded
   tags:
     - rpi_expandfs
