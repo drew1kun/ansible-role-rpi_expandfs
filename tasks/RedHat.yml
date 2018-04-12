@@ -1,12 +1,12 @@
 ---
-- name: '[RedHat] check if the /usr/local/bin/rootfs-expand binary is available'
-  stat: path="/usr/local/bin/rootfs-expand"
+- name: '[RedHat] check if the /usr/bin/rootfs-expand binary is available'
+  stat: path="/usr/bin/rootfs-expand"
   register: rpi_expandfs_rootfs_expand
   tags:
     - rpi_expandfs
 
 - name: '[RedHat] Run rootfs-expand command only if the binary exists'
-  command: /usr/local/bin/rootfs-expand
+  command: /usr/bin/rootfs-expand
   when: rpi_expandfs_rootfs_expand.stat.exists
   failed_when: false
   become: yes
@@ -14,7 +14,8 @@
   tags:
     - rpi_expandfs
 
-- fail: msg="/usr/local/bin/rootfs-expand binary was not found"
+- name: '[RedHat] Failed to find /usr/bin/rootfs-expand'
+  fail: msg="/usr/bin/rootfs-expand binary was not found"
   when: not rpi_expandfs_rootfs_expand.stat.exists
   tags:
     - rpi_expandfs
