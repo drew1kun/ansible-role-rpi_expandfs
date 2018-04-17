@@ -9,8 +9,8 @@
     force: yes
   become: yes
   tags:
-    - expandfs
-    - expandfs_dependencies
+    - rpi_expandfs
+    - rpi_expandfs_dependencies
 
 - name: '[dependencies] Add the GPG key of the apt-get repository for raspbian stretch'
   apt_key:
@@ -19,8 +19,8 @@
     state: present
   when: ansible_distribution_release == 'stretch'
   tags:
-    - expandfs
-    - expandfs_dependencies
+    - rpi_expandfs
+    - rpi_expandfs_dependencies
 
 - name: '[dependencies] Add apt-get repositories for raspbian stretch to install raspi-config and firmware'
   apt_repository:
@@ -31,8 +31,8 @@
     - deb http://archive.raspberrypi.org/debian/ stretch main ui     # holds raspi-config package
   when: ansible_distribution_release == 'stretch'
   tags:
-    - expandfs
-    - expandfs_dependencies
+    - rpi_expandfs
+    - rpi_expandfs_dependencies
 
 - name: '[dependencies] Install raspi-config'
   apt:
@@ -42,6 +42,6 @@
     force: yes
   become: yes
   tags:
-    - expandfs
-    - expandfs_dependencies
+    - rpi_expandfs
+    - rpi_expandfs_dependencies
 ...

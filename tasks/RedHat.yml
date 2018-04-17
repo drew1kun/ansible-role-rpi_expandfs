@@ -12,7 +12,7 @@
   failed_when: expandfs_unpartitioned.stderr != ""
   become: yes
   tags:
-    - expandfs
+    - rpi_expandfs
 
 - name: '[RedHat] Run rootfs-expand command only if the binary exists'
   command: /usr/bin/rootfs-expand
