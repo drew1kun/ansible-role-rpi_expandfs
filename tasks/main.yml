@@ -10,7 +10,7 @@
   tags:
     - rpi_expandfs
 
-- name: '[main] Unlock /etc/resolv.conf making sure it will always stay the same'
+- name: '[main] Unlock /etc/resolv.conf before changing nameserver, if it was locked'
   command: chattr -i /etc/resolv.conf
   become: yes
   when: rpi_espandfs_resolv_conf_attrib_i.rc == 0
