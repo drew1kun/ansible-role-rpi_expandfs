@@ -2,28 +2,22 @@
 # tasks for rpi_expandfs role
 
 # DNS
-- name: '[main] Check if "i" file attribute for /etc/resolv.conf is set'
-  shell: lsattr /etc/resolv.conf | cut -d ' ' -f 1 | grep -q "i"
-  register: rpi_espandfs_resolv_conf_attrib_i
-  changed_when: false
-  failed_when: false
+- name: "[main] Include tasks from resolv.yml"
+  include_tasks: resolv.yml
   tags:
     - rpi_expandfs
+    - resolv
 
-- name: '[main] Unlock /etc/resolv.conf before changing nameserver, if it was locked'
-  command: chattr -i /etc/resolv.conf
-  become: yes
-  when: rpi_espandfs_resolv_conf_attrib_i.rc == 0
+# DEPENDENCIES
+
+- name: '[Debian] Include Debian dependencies installation tasks'
+  include_tasks: dependencies.yml
+  when: ansible_os_family == 'Debian'
   tags:
     - rpi_expandfs
+    - rpi_expandfs_dependencies
 
-- name: '[main] Temporarily set dns to 9.9.9.9 in order to resolve *.raspberrypi.org'
-  copy: src=resolv.conf dest=/etc/resolv.conf mode=0644 owner=root group=root
-  become: yes
-  tags:
-    - rpi_expandfs
-
-# OS-Specific tasks
+# OS-SPECIFIC TASKS
 - name: "[main] Include tasks from {{ ansible_os_family }}.yml"
   include_tasks: "{{ ansible_os_family }}.yml"
   tags:

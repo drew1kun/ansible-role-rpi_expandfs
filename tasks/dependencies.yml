@@ -17,6 +17,7 @@
     keyserver: hkp://keyserver.ubuntu.com:80
     id: 7FA3303E
     state: present
+  become: yes
   when: ansible_distribution_release == 'stretch'
   tags:
     - rpi_expandfs
@@ -29,6 +30,7 @@
   with_items:
     - deb http://mirrordirector.raspbian.org/raspbian/ stretch main contrib non-free rpi firmware
     - deb http://archive.raspberrypi.org/debian/ stretch main ui     # holds raspi-config package
+  become: yes
   when: ansible_distribution_release == 'stretch'
   tags:
     - rpi_expandfs
