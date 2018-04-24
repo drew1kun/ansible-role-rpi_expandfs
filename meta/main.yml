@@ -21,5 +21,6 @@ galaxy_info:
     - Raspbian
     - Minibian
 
-dependencies: []
+dependencies:
+  - { role: drew-kun.resolv, resolv_lock: no }
 ...
