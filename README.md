@@ -33,7 +33,7 @@ Example Playbook
     - hosts: rpi
       gather_facts: yes
       roles:
-         - drewshg312.rpi_expandfs
+         - drew-kun.rpi_expandfs
 
 License
 -------
