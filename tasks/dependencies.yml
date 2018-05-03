@@ -25,11 +25,8 @@
 
 - name: '[dependencies] Add apt-get repositories for raspbian stretch to install raspi-config and firmware'
   apt_repository:
-    repo: "{{ item }}"
+    repo: deb http://archive.raspberrypi.org/debian/ stretch main ui     # holds raspi-config package
     state: present
-  with_items:
-    - deb http://mirrordirector.raspbian.org/raspbian/ stretch main contrib non-free rpi firmware
-    - deb http://archive.raspberrypi.org/debian/ stretch main ui     # holds raspi-config package
   become: yes
   when: ansible_distribution_release == 'stretch'
   tags:
