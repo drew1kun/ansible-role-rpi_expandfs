@@ -33,7 +33,7 @@ Example Playbook
     - hosts: rpi
       gather_facts: yes
       roles:
-         - drew-kun.rpi_expandfs
+         - drew_kun.rpi_expandfs
 
 License
 -------
@@ -45,7 +45,7 @@ Author Information
 
 Andrew Shagayev | [e-mail](mailto:drewshg@gmail.com)
 
-[role-badge]: https://img.shields.io/badge/role-drew--kun.rpi__expandfs-green.svg
-[galaxy-link]: https://galaxy.ansible.com/drew-kun/rpi_expandfs/
+[role-badge]: https://img.shields.io/badge/role-drew__kun.rpi__expandfs-green.svg
+[galaxy-link]: https://galaxy.ansible.com/drew_kun/rpi_expandfs/
 [mit-badge]: https://img.shields.io/badge/license-MIT-blue.svg
-[mit-link]: https://raw.githubusercontent.com/drew-kun/ansible-rpi_expandfs/master/LICENSE
+[mit-link]: https://raw.githubusercontent.com/drew_kun/ansible-rpi_expandfs/master/LICENSE

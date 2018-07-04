@@ -17,10 +17,10 @@ galaxy_info:
         - stretch
 
   galaxy_tags:
-    - network
-    - Raspbian
-    - Minibian
+    - raspberrypi
+    - raspbian
+    - minibian
 
 dependencies:
-  - { role: drew-kun.resolv, resolv_lock: yes }
+  - { role: drew_kun.resolv, resolv_lock: yes }
 ...
