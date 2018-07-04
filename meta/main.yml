@@ -1,5 +1,6 @@
 ---
 galaxy_info:
+  role_name: rpi_expandfs
   author: Andrew Shagayev
   description: The role expands the filesystem to the size of partition \
     after fresh Raspbian or Minibian image burned to sd card
