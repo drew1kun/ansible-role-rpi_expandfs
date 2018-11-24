@@ -30,10 +30,12 @@ None
 Example Playbook
 ----------------
 
-    - hosts: rpi
-      gather_facts: yes
-      roles:
-         - drew-kun.rpi_expandfs
+```yaml
+- hosts: rpi
+  gather_facts: yes
+  roles:
+  - drew-kun.rpi_expandfs
+```
 
 License
 -------
