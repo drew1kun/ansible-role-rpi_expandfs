@@ -1,33 +1,28 @@
 ---
-
 - name: '[Debian] Check unpartitioned space'
   shell: /sbin/parted /dev/mmcblk0 unit gb print free | grep 'Free Space' | tail -n1 | awk '{print $3}'
   register: expandfs_unpartitioned
   changed_when: false
   failed_when: expandfs_unpartitioned.stderr != ""
   become: yes
-  tags:
-    - rpi_expandfs
+  tags: rpi_expandfs
 
 - name: '[Debian] Expanding filesystem'
   command: raspi-config nonint do_expand_rootfs
   become: yes
   when: expandfs_unpartitioned.stdout != "0.00GB"
-  tags:
-    - rpi_expandfs
+  tags: rpi_expandfs
 
 - name: '[Debian] Running partprobe'
   command: partprobe
   become: yes
   when: expandfs_unpartitioned.stdout != "0.00GB"
-  tags:
-    - rpi_expandfs
+  tags: rpi_expandfs
 
 - name: '[Debian] Running resize2fs /dev/mmcblk0p2'
   command: resize2fs /dev/mmcblk0p2
   become: yes
   when: expandfs_unpartitioned.stdout != "0.00GB"
   notify: Filesystem is expanded
-  tags:
-    - rpi_expandfs
+  tags: rpi_expandfs
 ...
