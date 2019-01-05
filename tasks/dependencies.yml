@@ -20,6 +20,8 @@
     id: 7FA3303E
     state: present
   become: yes
+  register: rpi_expandfs_dep_result
+  until: rpi_expandfs_dep_result is succeeded
   when: ansible_distribution_release == 'stretch'
   tags:
   - rpi_expandfs
