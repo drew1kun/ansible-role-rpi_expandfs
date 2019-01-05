@@ -2,15 +2,17 @@
 - name: '[dependencies] Install parted and dirmngr'
   apt:
     name:
-      - parted
-      - dirmngr
+    - parted
+    - dirmngr
     update_cache: yes
     state: present
     force: yes
   become: yes
+  register: rpi_expandfs_dep_result
+  until: rpi_expandfs_dep_result is succeeded
   tags:
-    - rpi_expandfs
-    - rpi_expandfs_dependencies
+  - rpi_expandfs
+  - rpi_expandfs_dependencies
 
 - name: '[dependencies] Add the GPG key of the apt-get repository for raspbian stretch'
   apt_key:
@@ -20,8 +22,8 @@
   become: yes
   when: ansible_distribution_release == 'stretch'
   tags:
-    - rpi_expandfs
-    - rpi_expandfs_dependencies
+  - rpi_expandfs
+  - rpi_expandfs_dependencies
 
 - name: '[dependencies] Add apt-get repositories for raspbian stretch to install raspi-config and firmware'
   apt_repository:
@@ -30,8 +32,8 @@
   become: yes
   when: ansible_distribution_release == 'stretch'
   tags:
-    - rpi_expandfs
-    - rpi_expandfs_dependencies
+  - rpi_expandfs
+  - rpi_expandfs_dependencies
 
 - name: '[dependencies] Install raspi-config'
   apt:
@@ -40,7 +42,9 @@
     state: present
     force: yes
   become: yes
+  register: rpi_expandfs_dep_result
+  until: rpi_expandfs_dep_result is succeeded
   tags:
-    - rpi_expandfs
-    - rpi_expandfs_dependencies
+  - rpi_expandfs
+  - rpi_expandfs_dependencies
 ...
