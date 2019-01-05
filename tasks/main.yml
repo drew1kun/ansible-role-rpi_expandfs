@@ -6,16 +6,14 @@
   include_tasks: dependencies.yml
   when: ansible_os_family == 'Debian'
   tags:
-    - rpi_expandfs
-    - rpi_expandfs_dependencies
+  - rpi_expandfs
+  - rpi_expandfs_dependencies
 
 # OS-SPECIFIC TASKS
 - name: "[main] Include tasks from {{ ansible_os_family }}.yml"
   include_tasks: "{{ ansible_os_family }}.yml"
-  tags:
-    - rpi_expandfs
+  tags: rpi_expandfs
 
 - meta: flush_handlers
-  tags:
-    - rpi_expandfs
+  tags: rpi_expandfs
 ...
