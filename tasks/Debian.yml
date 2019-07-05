@@ -4,6 +4,7 @@
   register: expandfs_unpartitioned
   changed_when: false
   failed_when: expandfs_unpartitioned.stderr != ""
+  check_mode: false
   become: yes
   tags: rpi_expandfs
 
