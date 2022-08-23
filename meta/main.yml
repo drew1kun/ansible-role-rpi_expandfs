@@ -23,5 +23,4 @@ galaxy_info:
     - minibian
 
 dependencies:
-  - role: drew-kun.resolv
-...
+  - role: drew1kun.resolv
