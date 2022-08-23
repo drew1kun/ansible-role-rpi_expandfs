@@ -22,5 +22,5 @@ galaxy_info:
     - raspbian
     - minibian
 
-dependencies: []
-...
+dependencies:
+  - role: drew1kun.resolv

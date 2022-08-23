@@ -26,4 +26,3 @@
   when: expandfs_unpartitioned.stdout != "0.00GB"
   notify: Filesystem is expanded
   tags: rpi_expandfs
-...

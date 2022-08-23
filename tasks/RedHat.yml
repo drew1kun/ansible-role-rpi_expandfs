@@ -26,4 +26,3 @@
   fail: msg="/usr/bin/rootfs-expand binary was not found"
   when: not rpi_expandfs_rootfs_expand.stat.exists
   tags: rpi_expandfs
-...
