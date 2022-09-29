@@ -2,8 +2,8 @@
 galaxy_info:
   role_name: rpi_expandfs
   author: Andrew Shagayev
-  description: The role expands the filesystem to the size of partition \
-    after fresh Raspbian or Minibian image burned to sd card
+  description: Ansible role that expands the filesystem to the size of partition \
+    after fresh Raspbian or Minibian image burned to sd card.
 
   license: MIT
 
@@ -16,11 +16,22 @@ galaxy_info:
       versions:
         - jessie
         - stretch
+        - buster
+        - bullseye
+    - name: EL
+      versions:
+      - 7
 
   galaxy_tags:
+    - raspberry_pi_os
     - raspberrypi
     - raspbian
     - minibian
+    - jessie
+    - stretch
+    - buster
+    - bullseye
+    - centos_7
 
 dependencies:
   - role: drew1kun.resolv

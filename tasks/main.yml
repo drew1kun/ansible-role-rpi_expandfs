@@ -2,7 +2,7 @@
 # tasks for rpi_expandfs role
 
 # DEPENDENCIES
-- name: '[Debian] Include Debian dependencies installation tasks'
+- name: "[Debian] Include Debian dependencies installation tasks"
   include_tasks: dependencies.yml
   when: ansible_os_family == 'Debian'
   tags:
