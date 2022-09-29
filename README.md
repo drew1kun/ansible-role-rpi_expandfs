@@ -16,7 +16,7 @@ One of the following OS (or deriviatives):
 	- jessie
 	- stretch
 	- buster
-	- boolseye
+	- bullseye
  - Centos 7
 
 The role installs *parted* and *raspi-config* packages as dependencies
