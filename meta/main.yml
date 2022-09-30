@@ -2,7 +2,7 @@
 galaxy_info:
   role_name: rpi_expandfs
   author: Andrew Shagayev
-  description: Ansible role that expands the filesystem to the size of partition \
+  description: Ansible role that expands the filesystem to the size of partition
     after fresh Raspbian or Minibian image burned to sd card.
 
   license: MIT
